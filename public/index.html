@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Camp Rental Reservation</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Camp Rental</span>
+      </a>
+      <nav>
+        <a href="#calendar">예약 달력</a>
+        <a href="#reserve">예약하기</a>
+        <a href="#guide">이용 안내</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Camping Rental Board</p>
+          <h1>캠핑 장비 예약을 달력으로 확인하고 바로 신청하세요</h1>
+          <p>
+            예약 요청은 먼저 대기 상태로 등록되고, 관리자가 확인하면 확정 예약으로 바뀝니다.
+            달력에서는 예약 기간과 상태를 한눈에 볼 수 있습니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#reserve">예약 신청</a>
+            <a class="button secondary" href="#calendar">달력 보기</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="calendar" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Calendar</p>
+          <h2>예약 현황</h2>
+          <p>초록색은 확정, 주황색은 확인 대기 예약입니다.</p>
+        </div>
+        <div class="calendar-toolbar">
+          <button class="icon-button" id="prevMonth" type="button" aria-label="이전 달">‹</button>
+          <strong id="currentMonth"></strong>
+          <button class="icon-button" id="nextMonth" type="button" aria-label="다음 달">›</button>
+        </div>
+        <div class="calendar" id="calendarGrid" aria-live="polite"></div>
+      </section>
+
+      <section id="reserve" class="section reserve-layout">
+        <div class="section-heading align-left">
+          <p class="eyebrow">Request</p>
+          <h2>예약 신청</h2>
+          <p>연락처는 공개 달력에 표시되지 않습니다. 공개 달력에는 이름 첫 글자만 표시됩니다.</p>
+        </div>
+
+        <form class="reservation-form" id="reservationForm">
+          <label>
+            예약자 이름
+            <input name="name" autocomplete="name" required minlength="2" placeholder="홍길동">
+          </label>
+          <label>
+            연락처
+            <input name="phone" autocomplete="tel" required placeholder="010-0000-0000">
+          </label>
+          <div class="form-row">
+            <label>
+              시작일
+              <input name="startDate" type="date" required>
+            </label>
+            <label>
+              종료일
+              <input name="endDate" type="date" required>
+            </label>
+          </div>
+          <label>
+            인원
+            <input name="people" type="number" min="1" max="30" value="2" required>
+          </label>
+          <fieldset>
+            <legend>필요 장비</legend>
+            <label><input type="checkbox" name="equipment" value="텐트 패키지"> 텐트 패키지</label>
+            <label><input type="checkbox" name="equipment" value="체어 & 테이블"> 체어 & 테이블</label>
+            <label><input type="checkbox" name="equipment" value="랜턴 & 전원"> 랜턴 & 전원</label>
+            <label><input type="checkbox" name="equipment" value="취사 장비"> 취사 장비</label>
+            <label><input type="checkbox" name="equipment" value="침낭 / 매트"> 침낭 / 매트</label>
+          </fieldset>
+          <label>
+            요청 사항
+            <textarea name="message" rows="5" placeholder="캠핑장 유형, 차량 적재 공간, 필요한 추가 장비 등을 적어주세요."></textarea>
+          </label>
+          <button class="button primary" type="submit">예약 요청 등록</button>
+          <p class="form-message" id="formMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section id="guide" class="section guide-grid">
+        <article>
+          <span>01</span>
+          <h3>예약 요청</h3>
+          <p>날짜와 장비를 선택해 예약 요청을 등록합니다.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>관리자 확인</h3>
+          <p>재고와 일정 확인 후 예약 상태를 확정으로 변경합니다.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>장비 수령</h3>
+          <p>구성품 체크표와 사용 안내를 확인하고 장비를 수령합니다.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
