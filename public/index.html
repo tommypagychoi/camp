@@ -1,36 +1,16 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Camp Rental Reservation</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <header class="app-header">
-      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>Camp Rental</span></a>
-      <nav><a href="#calendar">예약 달력</a><a href="reserve.html">예약하기</a><a href="admin.html">관리자</a></nav>
-    </header>
-    <main>
-      <section class="hero">
-        <div>
-          <p class="eyebrow">Camping Rental Board</p>
-          <h1>캠핑 장비 예약을 달력으로 확인하고 바로 신청하세요</h1>
-          <p>예약 요청은 먼저 대기 상태로 등록되고, 입금 확인 후 관리자가 확정 예약으로 변경합니다. 달력에서는 예약 기간과 입금확정 정보를 볼 수 있습니다.</p>
-          <div class="hero-actions"><a class="button primary" href="reserve.html">예약하기</a><a class="button secondary" href="#calendar">달력 보기</a></div>
-        </div>
-      </section>
-      <section id="calendar" class="section">
-        <div class="section-heading"><p class="eyebrow">Calendar</p><h2>예약 현황</h2><p>초록색은 확정, 주황색은 확인 대기 예약입니다.</p></div>
-        <div class="calendar-toolbar"><button class="icon-button" id="prevMonth" type="button" aria-label="이전 달">‹</button><strong id="currentMonth"></strong><button class="icon-button" id="nextMonth" type="button" aria-label="다음 달">›</button></div>
-        <div class="calendar" id="calendarGrid" aria-live="polite"></div>
-      </section>
-      <section id="guide" class="section guide-grid">
-        <article><span>01</span><h3>예약 요청</h3><p>날짜와 장비를 선택해 예약 요청을 등록합니다.</p></article>
-        <article><span>02</span><h3>입금 확인</h3><p>입금자명과 금액 확인 후 관리자가 입금완료로 변경합니다.</p></article>
-        <article><span>03</span><h3>예약 확정</h3><p>재고와 일정 확인 후 예약 상태를 확정으로 변경합니다.</p></article>
-      </section>
-    </main>
-    <script src="app.js"></script>
-  </body>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>실시간예약현황</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="app-header"><a class="brand" href="index.html">Camp Rental</a><nav><a href="index.html">예약현황</a><a href="reserve.html">예약하기</a><a href="admin.html">관리자</a></nav></header>
+<main class="reservation-page">
+<section id="calendar" class="reservation-board">
+  <div class="reservation-top"><div class="reservation-title"><span class="sun-icon">☀</span><strong>실시간예약현황</strong></div><div class="reservation-actions"><a class="tab-button confirm" href="admin.html">예약확인</a><a class="tab-button edit" href="admin.html">예약수정</a><a class="tab-button cancel" href="admin.html">예약취소</a></div></div>
+  <div class="reservation-help"><ul><li>예약하고자 하는 날짜의 항목을 선택하세요.</li><li>예약은 결제 완료후 예약 완료 처리 됩니다.</li><li><span class="legend pending">예약대기</span> 해당 항목 결제대기상태, <span class="legend confirmed">예약완료</span> 해당 항목 결제완료된 상태</li></ul></div>
+  <div class="calendar-toolbar"><button class="month-button" id="prevMonth" type="button">이전달</button><strong id="currentMonth"></strong><button class="month-button" id="nextMonth" type="button">다음달</button></div>
+  <div class="calendar" id="calendarGrid" aria-live="polite"></div>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
 </html>
