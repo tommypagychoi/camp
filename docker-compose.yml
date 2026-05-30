@@ -1,0 +1,41 @@
+services:
+  camp-app:
+    build: .
+    container_name: camp-app
+    restart: unless-stopped
+    environment:
+      PORT: 8094
+      DB_HOST: camp-mysql
+      DB_PORT: 3306
+      DB_USER: camp_user
+      DB_PASSWORD: ${DB_PASSWORD:-change_this_password}
+      DB_NAME: camp_reservations
+      ADMIN_KEY: ${ADMIN_KEY:-change_this_admin_key}
+    ports:
+      - "8094:8094"
+    depends_on:
+      camp-mysql:
+        condition: service_healthy
+
+  camp-mysql:
+    image: mysql:8.4
+    container_name: camp-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: change_this_root_password
+      MYSQL_DATABASE: camp_reservations
+      MYSQL_USER: camp_user
+      MYSQL_PASSWORD: ${DB_PASSWORD:-change_this_password}
+    ports:
+      - "3306:3306"
+    volumes:
+      - camp-mysql-data:/var/lib/mysql
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u camp_user -p$${MYSQL_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  camp-mysql-data:
