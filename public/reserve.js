@@ -1,9 +1,24 @@
 const form = document.querySelector("#reservationForm");
 const formMessage = document.querySelector("#formMessage");
+const apiBase = window.location.hostname.includes("github.io")
+  ? "http://ccymproxmox.iptime.org:8094"
+  : "";
+const draftKey = "campReservationDrafts";
 
 function parseDateKey(value) {
   const [year, month, day] = value.split("-").map(Number);
   return new Date(year, month - 1, day);
+}
+
+function saveDraft(payload) {
+  const drafts = JSON.parse(localStorage.getItem(draftKey) || "[]");
+  drafts.push({
+    ...payload,
+    savedAt: new Date().toISOString(),
+    syncStatus: "pending"
+  });
+  localStorage.setItem(draftKey, JSON.stringify(drafts));
+  return drafts.length;
 }
 
 form.addEventListener("submit", async (event) => {
@@ -27,19 +42,27 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
-  const response = await fetch("/api/reservations", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-  const result = await response.json();
+  try {
+    const response = await fetch(`${apiBase}/api/reservations`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
 
-  if (!response.ok) {
-    formMessage.textContent = result.error || "예약 등록에 실패했습니다.";
-    return;
+    const result = await response.json();
+
+    if (!response.ok) {
+      formMessage.textContent = result.error || "예약 등록에 실패했습니다.";
+      return;
+    }
+
+    form.reset();
+    form.elements.people.value = 2;
+    formMessage.textContent = result.message || "예약 요청이 접수되었습니다.";
+  } catch (error) {
+    const draftCount = saveDraft(payload);
+    form.reset();
+    form.elements.people.value = 2;
+    formMessage.textContent = `예약 요청이 임시 접수되었습니다. 현재 브라우저에 ${draftCount}건이 보관되어 있습니다.`;
   }
-
-  form.reset();
-  form.elements.people.value = 2;
-  formMessage.textContent = result.message;
 });
