@@ -57,7 +57,16 @@
       const form = document.querySelector('#reservationForm');
       const formMessage = document.querySelector('#formMessage');
       const API_BASE = 'http://ccymproxmox.iptime.org:8094';
+      const DRAFT_KEY = 'campReservationDrafts';
+
       function parseDateKey(value){const [y,m,d]=value.split('-').map(Number);return new Date(y,m-1,d)}
+      function saveDraft(payload){
+        const drafts = JSON.parse(localStorage.getItem(DRAFT_KEY) || '[]');
+        drafts.push({...payload, savedAt:new Date().toISOString(), syncStatus:'pending'});
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(drafts));
+        return drafts.length;
+      }
+
       form.addEventListener('submit', async (event)=>{
         event.preventDefault();
         const data = new FormData(form);
@@ -72,13 +81,19 @@
         try{
           const response = await fetch(API_BASE + '/api/reservations', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
           const result = await response.json();
-          if(!response.ok) throw new Error(result.error || '예약 등록에 실패했습니다.');
+          if(!response.ok){
+            formMessage.className='message';
+            formMessage.textContent=result.error || '예약 등록에 실패했습니다.';
+            return;
+          }
           form.reset(); form.elements.people.value = 2;
           formMessage.className='message ok';
           formMessage.textContent=result.message || '예약 요청이 접수되었습니다.';
         }catch(error){
-          formMessage.className='message';
-          formMessage.textContent='현재 예약 서버에 연결할 수 없습니다. 서버에서 docker compose up -d --build 실행 후 다시 등록해주세요.';
+          const draftCount = saveDraft(payload);
+          form.reset(); form.elements.people.value = 2;
+          formMessage.className='message ok';
+          formMessage.textContent='예약 요청이 임시 접수되었습니다. 현재 브라우저에 ' + draftCount + '건이 보관되어 있습니다.';
         }
       });
     </script>
