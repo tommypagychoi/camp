@@ -1,26 +1,103 @@
-# Camp Rental Guide
+# Camp Rental Reservation
 
-캠핑 렌탈 품목과 이용 가이드를 소개하는 정적 웹페이지입니다. GitHub Pages에서 바로 배포할 수 있도록 `index.html`, `styles.css`, `assets/camp-hero.svg`만으로 구성했습니다.
+캠핑 렌탈 예약을 달력으로 확인하고 신청할 수 있는 웹앱입니다. 예약 데이터는 MySQL에 저장됩니다.
 
-## 구성
+## 주요 기능
 
-- `index.html`: 캠핑 렌탈 소개, 품목, 이용 단계, 출발 전 체크리스트, GitHub 저장소 링크
-- `styles.css`: 반응형 레이아웃과 전체 디자인
-- `assets/camp-hero.svg`: 캠핑 렌탈 웹페이지용 히어로 이미지
+- 달력형 예약 현황 보기
+- 예약 신청 등록
+- 예약 상태: `pending`, `confirmed`, `canceled`
+- 공개 달력에서는 이름 첫 글자만 표시
+- 관리자 API로 전체 예약/연락처 조회 및 상태 변경
 
-## 로컬에서 확인
+## 서버 구성
 
-브라우저에서 `index.html` 파일을 열면 바로 확인할 수 있습니다. 별도 빌드 과정은 없습니다.
+- 웹앱 서버: `8094`
+- HAProxy 예시 포트: `8095`
+- DB: MySQL 8.x 권장
 
-## GitHub Pages 배포
+## 필요한 서버
 
-1. GitHub 저장소의 `Settings`로 이동합니다.
-2. `Pages` 메뉴에서 배포 소스를 `Deploy from a branch`로 선택합니다.
-3. 브랜치는 `main`, 폴더는 `/root`를 선택합니다.
-4. 저장 후 잠시 기다리면 GitHub Pages URL이 생성됩니다.
+현재 구성만으로는 아래 2개면 충분합니다.
 
-## 수정 팁
+- Node.js 20 이상이 설치된 웹앱 서버
+- MySQL 서버
 
-- 렌탈 품목은 `index.html`의 `rental-card` 영역에서 추가하거나 변경할 수 있습니다.
-- 색상은 `styles.css` 상단의 `:root` 변수에서 조정할 수 있습니다.
-- 이미지 교체 시 같은 파일명인 `assets/camp-hero.svg`로 덮어두면 HTML 수정 없이 반영됩니다.
+Docker Compose를 쓰면 웹앱과 MySQL을 같은 서버에서 같이 띄울 수 있습니다. 실제 운영에서는 백업을 위해 MySQL 볼륨 백업이나 별도 DB 서버를 권장합니다.
+
+## 로컬 실행
+
+```bash
+cp .env.example .env
+npm install
+npm start
+```
+
+브라우저에서 `http://localhost:8094`를 열면 됩니다.
+
+## MySQL 직접 구성
+
+MySQL에 접속해서 아래 파일을 실행합니다.
+
+```bash
+mysql -u root -p < db/schema.sql
+```
+
+그 다음 `.env` 값을 서버 환경에 맞게 수정합니다.
+
+```env
+PORT=8094
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=camp_user
+DB_PASSWORD=change_this_password
+DB_NAME=camp_reservations
+ADMIN_KEY=change_this_admin_key
+```
+
+## Docker Compose 실행
+
+```bash
+docker compose up -d --build
+```
+
+비밀번호는 실행 전에 환경변수로 바꾸는 것을 권장합니다.
+
+```bash
+export DB_PASSWORD='강한_DB_비밀번호'
+export ADMIN_KEY='강한_관리자키'
+docker compose up -d --build
+```
+
+## HAProxy 예시
+
+`deploy/haproxy-camp.cfg` 파일을 참고하세요. `8095`로 들어온 요청을 `127.0.0.1:8094` 앱 서버로 넘기는 예시가 들어 있습니다.
+
+## 관리자 API
+
+전체 예약 조회:
+
+```bash
+curl -H "x-admin-key: change_this_admin_key" http://localhost:8094/api/admin/reservations
+```
+
+예약 상태 변경:
+
+```bash
+curl -X PATCH \
+  -H "Content-Type: application/json" \
+  -H "x-admin-key: change_this_admin_key" \
+  -d '{"status":"confirmed"}' \
+  http://localhost:8094/api/admin/reservations/1/status
+```
+
+## 실제 서버 배포 메모
+
+`ccymproxmox.iptime.org:8094`는 Node.js 앱 서버로 열고, `ccymproxmox.iptime.org:8095`는 HAProxy에서 `8094`로 프록시하면 됩니다.
+
+운영 전에 꼭 바꿔야 하는 값:
+
+- MySQL 비밀번호
+- `ADMIN_KEY`
+- 방화벽 인바운드 포트 `8094`, `8095`
+- MySQL을 외부에 열지 않을 경우 `3306`은 내부만 허용
