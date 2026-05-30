@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="캠핑 초보자도 쉽게 장비를 고르고 대여할 수 있는 캠핑 렌탈 가이드 웹페이지입니다."
+    >
+    <title>Camp Rental Guide</title>
+    <link rel="preload" href="assets/camp-hero.svg" as="image">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" aria-label="주요 메뉴">
+      <a class="brand" href="#top" aria-label="Camp Rental Guide 홈">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Camp Rental Guide</span>
+      </a>
+      <nav class="nav-links" aria-label="페이지 섹션">
+        <a href="#rentals">렌탈 품목</a>
+        <a href="#guide">이용 가이드</a>
+        <a href="#checklist">체크리스트</a>
+        <a href="#contact">문의</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-image" src="assets/camp-hero.svg" alt="숲속 캠핑장에 정돈된 텐트와 렌탈 장비가 놓인 모습">
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">캠핑 렌탈과 준비 가이드를 한곳에</p>
+          <h1 id="hero-title">처음 가는 캠핑도 장비 걱정 없이 시작하세요</h1>
+          <p class="hero-copy">
+            텐트, 테이블, 조명, 취사 장비까지 필요한 물품을 상황별로 고르고
+            예약 전 확인해야 할 준비 과정을 안내합니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#rentals">렌탈 품목 보기</a>
+            <a class="button secondary" href="#guide">이용 방법 확인</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro" aria-label="서비스 핵심 안내">
+        <div>
+          <strong>초보 캠퍼용 구성</strong>
+          <span>1박 2일 기준 필수 장비 중심으로 안내합니다.</span>
+        </div>
+        <div>
+          <strong>차량 적재 고려</strong>
+          <span>부피와 무게를 함께 보고 무리 없는 구성을 추천합니다.</span>
+        </div>
+        <div>
+          <strong>반납까지 간단하게</strong>
+          <span>사용 후 정리 방법과 분실 방지 팁을 제공합니다.</span>
+        </div>
+      </section>
+
+      <section id="rentals" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Rental Catalog</p>
+          <h2>캠핑 렌탈 품목</h2>
+          <p>상황에 맞게 조합하기 쉽도록 필수 장비와 편의 장비를 나누어 정리했습니다.</p>
+        </div>
+
+        <div class="rental-grid">
+          <article class="rental-card">
+            <span class="card-icon" aria-hidden="true">T</span>
+            <h3>텐트 패키지</h3>
+            <p>돔텐트, 그라운드시트, 팩, 망치, 스트링을 포함한 기본 숙박 세트입니다.</p>
+            <ul>
+              <li>2인 / 4인 / 가족형 선택</li>
+              <li>방수 플라이 포함</li>
+              <li>설치 안내 QR 제공</li>
+            </ul>
+          </article>
+
+          <article class="rental-card">
+            <span class="card-icon" aria-hidden="true">C</span>
+            <h3>체어 & 테이블</h3>
+            <p>식사와 휴식을 위한 접이식 체어, 롤테이블, 사이드 테이블 구성입니다.</p>
+            <ul>
+              <li>경량형 또는 안정형 선택</li>
+              <li>수납 가방 포함</li>
+              <li>인원수별 묶음 대여</li>
+            </ul>
+          </article>
+
+          <article class="rental-card">
+            <span class="card-icon" aria-hidden="true">L</span>
+            <h3>랜턴 & 전원</h3>
+            <p>야간 활동에 필요한 LED 랜턴, 충전식 조명, 보조 배터리를 제공합니다.</p>
+            <ul>
+              <li>메인 랜턴과 보조등 구성</li>
+              <li>USB-C 충전 지원</li>
+              <li>예비 배터리 옵션</li>
+            </ul>
+          </article>
+
+          <article class="rental-card">
+            <span class="card-icon" aria-hidden="true">K</span>
+            <h3>취사 장비</h3>
+            <p>버너, 코펠, 식기, 집게, 도마 등 야외 식사 준비에 필요한 세트입니다.</p>
+            <ul>
+              <li>가스 버너 또는 전기 옵션</li>
+              <li>기본 조리도구 포함</li>
+              <li>세척 후 반납 가이드 제공</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="guide" class="section guide-band">
+        <div class="section-heading">
+          <p class="eyebrow">How It Works</p>
+          <h2>이용 가이드</h2>
+          <p>예약부터 반납까지 필요한 단계를 간단하게 따라갈 수 있습니다.</p>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <span>01</span>
+            <h3>캠핑 일정과 인원 정하기</h3>
+            <p>숙박 일수, 이동 수단, 캠핑장 전기 사용 가능 여부를 먼저 확인합니다.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <h3>필수 장비 선택</h3>
+            <p>텐트, 의자, 테이블, 조명, 취사 장비를 기본으로 필요한 옵션을 추가합니다.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <h3>수령과 상태 확인</h3>
+            <p>구성품 체크표로 누락 여부를 확인하고, 사용 전 손상 여부를 사진으로 남깁니다.</p>
+          </li>
+          <li>
+            <span>04</span>
+            <h3>정리 후 반납</h3>
+            <p>흙과 물기를 털어낸 뒤 수납 가방에 넣고, 체크표 기준으로 반납합니다.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="checklist" class="section checklist-layout">
+        <div class="section-heading align-left">
+          <p class="eyebrow">Before You Go</p>
+          <h2>출발 전 체크리스트</h2>
+          <p>장비만 챙기면 끝이 아닙니다. 캠핑장에서 실제로 자주 빠지는 항목까지 확인하세요.</p>
+        </div>
+        <div class="checklist">
+          <label><input type="checkbox"> 캠핑장 예약 확인 문자와 입실 시간 확인</label>
+          <label><input type="checkbox"> 전기 사용 가능 여부와 릴선 필요 여부 확인</label>
+          <label><input type="checkbox"> 계절에 맞는 침낭, 담요, 핫팩 또는 선풍기 준비</label>
+          <label><input type="checkbox"> 쓰레기봉투, 물티슈, 개인 식기, 세면도구 준비</label>
+          <label><input type="checkbox"> 장비 수령 시 구성품 사진 촬영</label>
+          <label><input type="checkbox"> 우천 예보 확인 및 방수팩 준비</label>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Rental Request</p>
+          <h2 id="contact-title">캠핑 일정에 맞는 장비 구성이 필요하신가요?</h2>
+          <p>
+            인원, 캠핑장 유형, 차량 적재 공간을 알려주시면 필요한 렌탈 구성을 빠르게
+            정리할 수 있도록 안내합니다.
+          </p>
+        </div>
+        <a class="button primary" href="https://github.com/tommypagychoi/camp" target="_blank" rel="noreferrer">
+          GitHub 저장소 보기
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Camp Rental Guide · 캠핑 렌탈 웹페이지 샘플</p>
+      <a href="#top">맨 위로</a>
+    </footer>
+  </body>
+</html>
