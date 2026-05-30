@@ -26,8 +26,6 @@ services:
       MYSQL_DATABASE: camp_reservations
       MYSQL_USER: camp_user
       MYSQL_PASSWORD: ${DB_PASSWORD:-change_this_password}
-    ports:
-      - "3306:3306"
     volumes:
       - camp-mysql-data:/var/lib/mysql
       - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
