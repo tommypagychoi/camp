@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">숲속 캠핑 렌탈 장비</title>
+  <desc id="desc">저녁 숲속 캠핑장에 텐트, 의자, 테이블, 랜턴, 캠핑 장비가 정돈되어 있는 일러스트</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#cde8ee"/>
+      <stop offset="0.55" stop-color="#f5d59b"/>
+      <stop offset="1" stop-color="#486b55"/>
+    </linearGradient>
+    <linearGradient id="tent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f3c173"/>
+      <stop offset="1" stop-color="#a65f3a"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#10251a" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <circle cx="1240" cy="210" r="92" fill="#f3b45d" opacity="0.9"/>
+  <path d="M0 390 C220 300 420 350 610 285 C850 200 1040 270 1228 210 C1400 158 1510 190 1600 150 L1600 1000 L0 1000 Z" fill="#32563f" opacity="0.9"/>
+  <path d="M0 475 C230 390 490 432 710 372 C980 298 1230 372 1600 300 L1600 1000 L0 1000 Z" fill="#224330"/>
+  <path d="M0 595 C240 520 420 560 660 505 C920 445 1190 530 1600 455 L1600 1000 L0 1000 Z" fill="#183524"/>
+  <g opacity="0.6">
+    <path d="M130 210 L190 520 H70 Z" fill="#244832"/>
+    <path d="M118 245 L43 420 H193 Z" fill="#2f5f41"/>
+    <path d="M265 155 L345 540 H185 Z" fill="#244832"/>
+    <path d="M255 202 L152 430 H365 Z" fill="#326746"/>
+    <path d="M1445 150 L1530 545 H1360 Z" fill="#234631"/>
+    <path d="M1438 200 L1328 430 H1552 Z" fill="#2e6243"/>
+  </g>
+  <ellipse cx="800" cy="802" rx="670" ry="118" fill="#122519" opacity="0.42"/>
+  <g filter="url(#softShadow)">
+    <path d="M505 730 L760 362 L1015 730 Z" fill="url(#tent)"/>
+    <path d="M760 362 L1015 730 L803 730 Z" fill="#6f3f2b" opacity="0.5"/>
+    <path d="M632 730 L760 520 L890 730 Z" fill="#273426"/>
+    <path d="M760 520 L890 730 L792 730 Z" fill="#141f18" opacity="0.74"/>
+    <path d="M505 730 H1015" stroke="#f6d196" stroke-width="14" stroke-linecap="round"/>
+    <path d="M760 362 L760 730" stroke="#f7dba7" stroke-width="8" opacity="0.72"/>
+  </g>
+  <g fill="none" stroke="#f7dba7" stroke-width="5" stroke-linecap="round" opacity="0.85">
+    <path d="M505 730 L408 790"/>
+    <path d="M1015 730 L1114 792"/>
+  </g>
+  <g transform="translate(270 652)">
+    <rect x="0" y="72" width="180" height="22" rx="8" fill="#51392c"/>
+    <path d="M22 70 L54 0 H72 L42 70 Z" fill="#314335"/>
+    <path d="M142 70 L108 0 H90 L120 70 Z" fill="#314335"/>
+    <rect x="42" y="4" width="76" height="18" rx="8" fill="#d98b37"/>
+    <path d="M26 96 L10 156 M154 96 L170 156" stroke="#2b352b" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(1115 635)">
+    <rect x="0" y="0" width="230" height="34" rx="10" fill="#544235"/>
+    <rect x="16" y="34" width="18" height="125" rx="8" fill="#2f3c31"/>
+    <rect x="196" y="34" width="18" height="125" rx="8" fill="#2f3c31"/>
+    <rect x="44" y="-42" width="48" height="36" rx="8" fill="#d98b37"/>
+    <rect x="106" y="-58" width="68" height="52" rx="10" fill="#f6d196"/>
+    <path d="M124 -58 V-98" stroke="#26372b" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(700 708)">
+    <rect x="-58" y="38" width="116" height="80" rx="14" fill="#26372b"/>
+    <rect x="-40" y="18" width="80" height="36" rx="12" fill="#d98b37"/>
+    <path d="M-25 18 C-18 -12 18 -12 25 18" fill="none" stroke="#f6d196" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(456 505)">
+    <path d="M0 0 H84 V150 H0 Z" fill="#223326" opacity="0.45"/>
+    <ellipse cx="42" cy="0" rx="42" ry="14" fill="#f6d196"/>
+    <ellipse cx="42" cy="0" rx="22" ry="7" fill="#fff5cf"/>
+    <path d="M42 -45 V-12" stroke="#f6d196" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="42" cy="-56" r="16" fill="#ffd36c"/>
+  </g>
+  <path d="M0 842 C250 812 510 900 746 850 C940 808 1205 820 1600 770 L1600 1000 L0 1000 Z" fill="#213629"/>
+  <path d="M0 890 C220 860 380 918 570 890 C785 858 1004 936 1600 848 L1600 1000 L0 1000 Z" fill="#17271d"/>
+</svg>
