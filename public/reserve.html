@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>예약하기 | Camp Rental</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Camp Rental</span>
+      </a>
+      <nav>
+        <a href="index.html">예약 달력</a>
+        <a href="reserve.html">예약하기</a>
+        <a href="admin.html">관리자</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section reserve-layout">
+        <div class="section-heading align-left">
+          <p class="eyebrow">Reservation</p>
+          <h1>캠핑 장비 예약하기</h1>
+          <p>예약 요청을 남기면 관리자가 일정과 재고를 확인합니다. 입금 확인 후 예약 상태가 확정으로 변경됩니다.</p>
+          <div class="notice-box">
+            <strong>입금 안내</strong>
+            <span>입금자명은 예약자명과 같게 입력해주세요. 다르면 아래 입금자명에 따로 적어주세요.</span>
+            <span>입금이 확인되면 관리자 페이지에서 입금완료와 예약확정으로 표시됩니다.</span>
+          </div>
+        </div>
+
+        <form class="reservation-form" id="reservationForm">
+          <label>예약자 이름 <input name="name" autocomplete="name" required minlength="2" placeholder="홍길동"></label>
+          <label>연락처 <input name="phone" autocomplete="tel" required placeholder="010-0000-0000"></label>
+          <label>입금자명 <input name="depositName" autocomplete="name" placeholder="예약자와 같으면 비워두세요"></label>
+          <div class="form-row">
+            <label>시작일 <input name="startDate" type="date" required></label>
+            <label>종료일 <input name="endDate" type="date" required></label>
+          </div>
+          <label>인원 <input name="people" type="number" min="1" max="30" value="2" required></label>
+          <fieldset>
+            <legend>필요 장비</legend>
+            <label><input type="checkbox" name="equipment" value="텐트 패키지"> 텐트 패키지</label>
+            <label><input type="checkbox" name="equipment" value="체어 & 테이블"> 체어 & 테이블</label>
+            <label><input type="checkbox" name="equipment" value="랜턴 & 전원"> 랜턴 & 전원</label>
+            <label><input type="checkbox" name="equipment" value="취사 장비"> 취사 장비</label>
+            <label><input type="checkbox" name="equipment" value="침낭 / 매트"> 침낭 / 매트</label>
+          </fieldset>
+          <label>요청 사항 <textarea name="message" rows="5" placeholder="캠핑장 유형, 차량 적재 공간, 필요한 추가 장비 등을 적어주세요."></textarea></label>
+          <button class="button primary" type="submit">예약 요청 등록</button>
+          <p class="form-message" id="formMessage" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="reserve.js"></script>
+  </body>
+</html>
