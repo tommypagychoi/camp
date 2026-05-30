@@ -5,17 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>예약하기 | Camp Rental</title>
     <style>
-      body{margin:0;background:#f8f7f1;color:#17211b;font-family:system-ui,'Malgun Gothic',sans-serif;line-height:1.6}.wrap{max-width:860px;margin:0 auto;padding:70px 22px}.card{background:white;border:1px solid #d9ded8;border-radius:8px;padding:32px}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;margin:0 0 18px}.button{display:inline-flex;margin-top:18px;padding:13px 18px;background:#d98b37;color:#20140a;border-radius:8px;text-decoration:none;font-weight:900}.muted{color:#5b665f}.warn{padding:14px 16px;background:#fff6e8;border:1px solid #efc58a;border-radius:8px}</style>
+      :root{--ink:#17211b;--muted:#5b665f;--paper:#f8f7f1;--panel:#fff;--line:#d9ded8;--forest:#1f5a3c;--sun:#d98b37;--sky:#dbe9ed;--danger:#b74b3d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,'Malgun Gothic',sans-serif;line-height:1.6}.header{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px clamp(18px,4vw,56px);background:rgba(248,247,241,.94);border-bottom:1px solid var(--line)}.brand{font-weight:900;text-decoration:none;color:var(--ink)}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-weight:800}.wrap{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(320px,1.2fr);gap:clamp(28px,5vw,72px);padding:70px clamp(20px,5vw,72px);background:var(--sky);min-height:calc(100vh - 68px)}.eyebrow{margin:0 0 12px;color:var(--sun);font-weight:900;text-transform:uppercase}.copy h1{margin:0;font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.08}.copy p{color:var(--muted);font-size:1.06rem}.notice{display:grid;gap:6px;margin-top:20px;padding:18px;background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:8px}.form{display:grid;gap:16px;padding:clamp(20px,3vw,34px);background:var(--panel);border:1px solid var(--line);border-radius:8px}label,fieldset{display:grid;gap:7px;margin:0;color:#2a352e;font-weight:850}input,textarea{width:100%;padding:12px 13px;border:1px solid #c9d0c9;border-radius:8px;color:var(--ink);font:inherit}fieldset{border:1px solid var(--line);border-radius:8px;padding:16px}fieldset label{display:flex;align-items:center;gap:8px;font-weight:700}fieldset input{width:auto}.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.button{min-height:48px;border:0;border-radius:8px;background:var(--sun);color:#221407;font:inherit;font-weight:900;cursor:pointer}.message{min-height:24px;margin:0;color:var(--danger);font-weight:800}.ok{color:var(--forest)}@media(max-width:860px){.wrap,.row{grid-template-columns:1fr}.header{align-items:flex-start;flex-direction:column}}
+    </style>
   </head>
   <body>
+    <header class="header">
+      <a class="brand" href="../index.html">Camp Rental</a>
+      <nav class="nav">
+        <a href="../index.html">소개</a>
+        <a href="reserve.html">예약하기</a>
+        <a href="admin.html">관리자</a>
+      </nav>
+    </header>
+
     <main class="wrap">
-      <section class="card">
-        <p class="muted">Reservation</p>
-        <h1>예약 페이지 준비 중입니다</h1>
-        <p>예약 데이터는 MySQL 서버에 저장되어야 하므로, 실제 예약 접수는 서버 앱이 <strong>ccymproxmox.iptime.org:8094</strong>에서 실행된 뒤 사용할 수 있습니다.</p>
-        <p class="warn">현재 브라우저의 연결 리셋 에러는 예약 앱 서버가 아직 8094에서 응답하지 않아서 발생한 것입니다.</p>
-        <a class="button" href="http://ccymproxmox.iptime.org:8094/reserve.html">서버 예약 페이지 다시 열기</a>
+      <section class="copy">
+        <p class="eyebrow">Reservation</p>
+        <h1>캠핑 장비 예약하기</h1>
+        <p>원하는 날짜와 장비를 입력하면 예약 요청이 접수됩니다. 입금 확인 후 관리자가 예약을 확정합니다.</p>
+        <div class="notice">
+          <strong>입금 확인 안내</strong>
+          <span>입금자명은 예약자명과 같게 입력해주세요. 다르면 입금자명을 따로 적어주세요.</span>
+          <span>서버 앱이 연결되면 예약 내용은 MySQL에 저장되고 관리자 페이지에서 입금확정 처리가 가능합니다.</span>
+        </div>
       </section>
+
+      <form class="form" id="reservationForm">
+        <label>예약자 이름 <input name="name" autocomplete="name" required minlength="2" placeholder="홍길동"></label>
+        <label>연락처 <input name="phone" autocomplete="tel" required placeholder="010-0000-0000"></label>
+        <label>입금자명 <input name="depositName" autocomplete="name" placeholder="예약자와 같으면 비워두세요"></label>
+        <div class="row">
+          <label>시작일 <input name="startDate" type="date" required></label>
+          <label>종료일 <input name="endDate" type="date" required></label>
+        </div>
+        <label>인원 <input name="people" type="number" min="1" max="30" value="2" required></label>
+        <fieldset>
+          <legend>필요 장비</legend>
+          <label><input type="checkbox" name="equipment" value="텐트 패키지"> 텐트 패키지</label>
+          <label><input type="checkbox" name="equipment" value="체어 & 테이블"> 체어 & 테이블</label>
+          <label><input type="checkbox" name="equipment" value="랜턴 & 전원"> 랜턴 & 전원</label>
+          <label><input type="checkbox" name="equipment" value="취사 장비"> 취사 장비</label>
+          <label><input type="checkbox" name="equipment" value="침낭 / 매트"> 침낭 / 매트</label>
+        </fieldset>
+        <label>요청 사항 <textarea name="message" rows="5" placeholder="캠핑장 유형, 차량 적재 공간, 필요한 추가 장비 등을 적어주세요."></textarea></label>
+        <button class="button" type="submit">예약 요청 등록</button>
+        <p class="message" id="formMessage" role="status"></p>
+      </form>
     </main>
+
+    <script>
+      const form = document.querySelector('#reservationForm');
+      const formMessage = document.querySelector('#formMessage');
+      const API_BASE = 'http://ccymproxmox.iptime.org:8094';
+      function parseDateKey(value){const [y,m,d]=value.split('-').map(Number);return new Date(y,m-1,d)}
+      form.addEventListener('submit', async (event)=>{
+        event.preventDefault();
+        const data = new FormData(form);
+        const payload = {
+          name: data.get('name'), phone: data.get('phone'), depositName: data.get('depositName'),
+          startDate: data.get('startDate'), endDate: data.get('endDate'), people: Number(data.get('people')),
+          equipment: data.getAll('equipment'), message: data.get('message')
+        };
+        if(parseDateKey(payload.startDate)>parseDateKey(payload.endDate)){formMessage.className='message';formMessage.textContent='종료일은 시작일 이후로 선택해주세요.';return;}
+        formMessage.className='message';
+        formMessage.textContent='예약 요청을 서버에 등록하는 중입니다.';
+        try{
+          const response = await fetch(API_BASE + '/api/reservations', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+          const result = await response.json();
+          if(!response.ok) throw new Error(result.error || '예약 등록에 실패했습니다.');
+          form.reset(); form.elements.people.value = 2;
+          formMessage.className='message ok';
+          formMessage.textContent=result.message || '예약 요청이 접수되었습니다.';
+        }catch(error){
+          formMessage.className='message';
+          formMessage.textContent='현재 예약 서버에 연결할 수 없습니다. 서버에서 docker compose up -d --build 실행 후 다시 등록해주세요.';
+        }
+      });
+    </script>
   </body>
 </html>
