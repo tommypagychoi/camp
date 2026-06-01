@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이미지 갤러리 | 대여캠프</title>
+<style>
+:root{--bg:#101713;--panel:#18231d;--ink:#f6f1e8;--muted:#c7bdad;--line:#304338;--green:#48b576;--sun:#f1a340}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,'Malgun Gothic',sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.header{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px clamp(18px,5vw,64px);border-bottom:1px solid var(--line);background:#101b15}.brand{font-weight:950;font-size:1.2rem}.nav{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-weight:800}.nav a:hover{color:var(--sun)}.wrap{max-width:1180px;margin:0 auto;padding:58px 20px 74px}.title{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:28px}.title h1{margin:0;font-size:clamp(2.2rem,6vw,4.8rem);line-height:1.05}.title p{max-width:520px;margin:0;color:var(--muted)}.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.shot{position:relative;min-height:260px;overflow:hidden;border:1px solid var(--line);border-radius:8px;background:#222}.shot img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.08) contrast(1.04)}.shot span{position:absolute;left:14px;bottom:14px;padding:8px 11px;border-radius:8px;background:rgba(8,14,11,.72);font-weight:900}.wide{grid-column:span 7}.mid{grid-column:span 5}.small{grid-column:span 4}@media(max-width:860px){.title{align-items:flex-start;flex-direction:column}.gallery{grid-template-columns:1fr}.wide,.mid,.small{grid-column:auto}.shot{min-height:240px}}
+</style>
+</head>
+<body>
+<header class="header"><a class="brand" href="index.html">대여캠프</a><nav class="nav"><a href="index.html">홈</a><a href="public/index.html">예약현황</a><a href="tent.html">텐트 설치</a><a href="tarp.html">타프 설치</a><a href="public/admin.html">관리자</a></nav></header>
+<main class="wrap">
+<section class="title"><h1>이미지 갤러리</h1><p>대여캠프의 장비 구성과 캠핑 분위기를 한눈에 볼 수 있도록 텐트, 타프, 야간 조명, 주방 장비 이미지를 모았습니다.</p></section>
+<section class="gallery" aria-label="캠핑 이미지 갤러리">
+<figure class="shot wide"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1200&q=80" alt="숲속 텐트 캠핑"><span>텐트 사이트</span></figure>
+<figure class="shot mid"><img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80" alt="타프 아래 캠핑 공간"><span>타프 쉘터</span></figure>
+<figure class="shot small"><img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=900&q=80" alt="캠핑 랜턴과 야간 분위기"><span>야간 조명</span></figure>
+<figure class="shot small"><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=900&q=80" alt="캠핑 장비와 차량"><span>장비 구성</span></figure>
+<figure class="shot small"><img src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?auto=format&fit=crop&w=900&q=80" alt="캠핑 요리 공간"><span>취사 공간</span></figure>
+<figure class="shot mid"><img src="https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?auto=format&fit=crop&w=1200&q=80" alt="산과 호수 근처 텐트"><span>자연 속 숙박</span></figure>
+<figure class="shot wide"><img src="https://images.unsplash.com/photo-1532339142463-fd0a8979791a?auto=format&fit=crop&w=1200&q=80" alt="캠프파이어가 있는 캠핑장"><span>캠프 분위기</span></figure>
+</section>
+</main>
+</body>
+</html>
