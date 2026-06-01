@@ -3,18 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>관리자 | Camp Rental</title>
+    <title>관리자 | 대여캠프</title>
     <style>
-      body{margin:0;background:#f8f7f1;color:#17211b;font-family:system-ui,'Malgun Gothic',sans-serif;line-height:1.6}.wrap{max-width:860px;margin:0 auto;padding:70px 22px}.card{background:white;border:1px solid #d9ded8;border-radius:8px;padding:32px}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;margin:0 0 18px}.button{display:inline-flex;margin-top:18px;padding:13px 18px;background:#d98b37;color:#20140a;border-radius:8px;text-decoration:none;font-weight:900}.muted{color:#5b665f}.warn{padding:14px 16px;background:#fff6e8;border:1px solid #efc58a;border-radius:8px}</style>
+      body{margin:0;background:#101713;color:#f6f1e8;font-family:system-ui,'Malgun Gothic',sans-serif;line-height:1.65}.header{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px clamp(18px,5vw,64px);border-bottom:1px solid #304338;background:#101b15}.brand{font-weight:950;font-size:1.2rem;color:#fff;text-decoration:none}.nav{display:flex;gap:10px;flex-wrap:wrap}.nav a{color:#c7bdad;text-decoration:none;font-weight:800}.nav a:hover{color:#f1a340}.wrap{max-width:980px;margin:0 auto;padding:70px 22px}.card{background:linear-gradient(180deg,#1a251f,#131c17);border:1px solid #304338;border-radius:8px;padding:32px}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;margin:0 0 18px}.muted{color:#c7bdad}.ok{padding:14px 16px;background:#11261b;border:1px solid #48b576;border-radius:8px;color:#dff8e9}.warn{padding:14px 16px;background:#251b12;border:1px solid #f1a340;border-radius:8px;color:#ffe3b5}.button{display:inline-flex;margin-top:18px;padding:13px 18px;background:#f1a340;color:#20140a;border-radius:8px;text-decoration:none;font-weight:900}.list{display:grid;gap:10px;margin-top:18px}.list div{padding:14px 16px;background:#101713;border:1px solid #304338;border-radius:8px}
+    </style>
   </head>
   <body>
+    <header class="header"><a class="brand" href="../index.html">대여캠프 관리자</a><nav class="nav"><a href="../index.html">홈</a><a href="index.html">예약현황</a><a href="reserve.html">예약 요청서</a><a href="../tent.html">텐트 설치</a><a href="../tarp.html">타프 설치</a><a href="../gallery.html">갤러리</a></nav></header>
     <main class="wrap">
       <section class="card">
-        <p class="muted">Admin</p>
-        <h1>관리자 페이지 준비 중입니다</h1>
-        <p>예약 관리, 입금확정, 예약취소는 MySQL과 연결된 서버 앱에서만 동작합니다.</p>
-        <p class="warn">서버에서 Docker Compose로 앱을 띄운 뒤 관리자 페이지를 열어주세요.</p>
-        <a class="button" href="http://ccymproxmox.iptime.org:8094/admin.html">서버 관리자 페이지 다시 열기</a>
+        <p class="muted">Admin Check</p>
+        <h1>관리자 페이지 상태</h1>
+        <p class="ok">GitHub Pages 화면 자체의 404 또는 브라우저 콘솔 오류는 확인되지 않았습니다.</p>
+        <p class="warn">예약 관리, 입금확정, 예약취소는 MySQL과 연결된 Node.js 서버에서만 동작합니다. 이 정적 페이지에서는 서버 관리자 페이지로 이동하는 안내만 제공합니다.</p>
+        <div class="list">
+          <div><strong>정적 주소</strong><br>https://tommypagychoi.github.io/camp/public/admin.html</div>
+          <div><strong>서버 관리자 주소</strong><br>http://ccymproxmox.iptime.org:8094/admin.html</div>
+        </div>
+        <a class="button" href="http://ccymproxmox.iptime.org:8094/admin.html">서버 관리자 페이지 열기</a>
       </section>
     </main>
   </body>
