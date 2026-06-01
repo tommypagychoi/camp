@@ -17,7 +17,7 @@
 <label>입금자명 <input name="depositName" autocomplete="name" placeholder="예약자와 같으면 비워두세요"></label>
 <div class="row"><label>시작일 <input name="startDate" type="date" required></label><label>종료일 <input name="endDate" type="date" required></label></div>
 <label>인원 <input name="people" type="number" min="1" max="30" value="2" required></label>
-<fieldset><legend>필요 장비</legend><label><input type="checkbox" name="equipment" value="텐트 패키지"> 텐트 패키지</label><label><input type="checkbox" name="equipment" value="체어 & 테이블"> 체어 & 테이블</label><label><input type="checkbox" name="equipment" value="랜턴 & 전원"> 랜턴 & 전원</label><label><input type="checkbox" name="equipment" value="취사 장비"> 취사 장비</label><label><input type="checkbox" name="equipment" value="침낭 / 매트"> 침낭 / 매트</label></fieldset>
+<fieldset><legend>예약 품목</legend><label><input type="checkbox" name="equipment" value="원터치 텐트"> 원터치 텐트</label><label><input type="checkbox" name="equipment" value="타프"> 타프</label><label><input type="checkbox" name="equipment" value="패키지 예약"> 패키지 예약</label></fieldset>
 <label>요청 사항 <textarea name="message" rows="5" placeholder="캠핑장 유형, 차량 적재 공간, 필요한 추가 장비 등을 적어주세요."></textarea></label>
 <button class="button" type="submit">예약 요청 등록</button><p class="message" id="formMessage" role="status"></p>
 </form>
