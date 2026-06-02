@@ -15,29 +15,24 @@
     .hero{min-height:420px;display:flex;align-items:center;padding:70px 52px;background:linear-gradient(90deg,rgba(5,10,15,.82),rgba(5,10,15,.56)),url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat}
     .hero h1{margin:0 0 12px;font-size:64px;line-height:1.08;letter-spacing:0}
     .hero p{margin:0;font-size:20px;color:#e2e8f0}
-    main{max-width:1360px;margin:0 auto;padding:52px 24px 80px}
+    main{max-width:1480px;margin:0 auto;padding:52px 24px 80px}
     .steps{display:grid;gap:18px}
-    .step{display:grid;grid-template-columns:100px minmax(0,1fr) 320px;gap:22px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:24px}
+    .step{display:grid;grid-template-columns:100px minmax(0,1fr) 420px;gap:26px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:28px}
     .num{width:100px;height:66px;border-radius:8px;background:#67d3f3;color:#06111a;display:grid;place-items:center;font-size:18px;font-weight:900}
     .step h2{margin:0 0 8px;font-size:26px;line-height:1.25;letter-spacing:0}
     .step p{margin:0;color:var(--muted);font-size:18px}
-    .photo-button{width:320px;aspect-ratio:16/10;border-radius:8px;border:1px solid var(--line);padding:0;overflow:hidden;background:#0b1118;cursor:zoom-in;box-shadow:0 8px 18px rgba(0,0,0,.22)}
+    .photo-button{width:420px;aspect-ratio:16/10;border-radius:8px;border:1px solid var(--line);padding:0;overflow:hidden;background:#0b1118;cursor:zoom-in;box-shadow:0 8px 18px rgba(0,0,0,.22)}
     .photo-button:hover{filter:brightness(1.05)}
     .photo-button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-    .photo-button img{display:block;width:100%;height:100%;object-fit:cover;image-rendering:auto;filter:contrast(1.08) saturate(1.06) brightness(1.03)}
-    .photo-button.sprite{background-image:url('assets/tarp-steps/tarp-steps-sprite.jpg');background-size:320px 1204px;background-repeat:no-repeat;filter:contrast(1.1) saturate(1.08) brightness(1.03)}
-    .sprite.p5{background-position:center -802px}.sprite.p6{background-position:center -1003px}
+    .photo-button img{display:block;width:100%;height:100%;object-fit:cover;image-rendering:auto;filter:contrast(1.14) saturate(1.08) brightness(1.02)}
     .tips{margin-top:34px;background:#121b24;border:1px solid var(--line);border-radius:8px;padding:28px}
     .tips h2{margin:0 0 14px;font-size:28px}.tips ul{margin:0;padding-left:22px;color:#dbeafe;font-size:18px}.tips li+li{margin-top:8px}
     .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(0,0,0,.9);z-index:100}
     .lightbox.open{display:flex}
-    .lightbox-img{display:none;max-width:min(94vw,1040px);max-height:86vh;border-radius:8px;object-fit:contain;background:#000;box-shadow:0 24px 70px rgba(0,0,0,.58);filter:contrast(1.04) saturate(1.03)}
-    .lightbox-img.visible{display:block}
-    .lightbox-photo{display:none;width:min(90vw,660px);aspect-ratio:220/138;border-radius:8px;background-image:url('assets/tarp-steps/tarp-steps-sprite.jpg');background-size:660px 2484px;background-repeat:no-repeat;background-color:#000;box-shadow:0 24px 70px rgba(0,0,0,.55);filter:contrast(1.05) saturate(1.03)}
-    .lightbox-photo.visible{display:block}.lightbox-photo.p5{background-position:center -1656px}.lightbox-photo.p6{background-position:center -2070px}
+    .lightbox-img{max-width:min(94vw,1180px);max-height:86vh;border-radius:8px;object-fit:contain;background:#000;box-shadow:0 24px 70px rgba(0,0,0,.58);filter:contrast(1.05) saturate(1.04)}
     .lightbox-close{position:absolute;top:20px;right:24px;width:44px;height:44px;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(15,20,25,.72);color:#fff;font-size:30px;line-height:1;cursor:pointer}
     .lightbox-close:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-    @media(max-width:900px){header{padding:0 22px}nav{gap:12px;font-size:14px}.hero{min-height:330px;padding:48px 24px}.hero h1{font-size:42px}.hero p{font-size:17px}.step{grid-template-columns:76px minmax(0,1fr);gap:16px}.num{width:76px;height:58px}.photo-button{grid-column:1 / -1;width:min(320px,100%)}.step h2{font-size:22px}.step p{font-size:16px}.lightbox{padding:18px}}
+    @media(max-width:980px){header{padding:0 22px}nav{gap:12px;font-size:14px}.hero{min-height:330px;padding:48px 24px}.hero h1{font-size:42px}.hero p{font-size:17px}.step{grid-template-columns:76px minmax(0,1fr);gap:16px}.num{width:76px;height:58px}.photo-button{grid-column:1 / -1;width:min(420px,100%)}.step h2{font-size:22px}.step p{font-size:16px}.lightbox{padding:18px}}
   </style>
 </head>
 <body>
@@ -55,12 +50,12 @@
   </section>
   <main>
     <section class="steps" aria-label="타프 설치 단계">
-      <article class="step"><div class="num">01</div><div><h2>장비 구성 확인</h2><p>타프 천, 메인 폴대, 사이드 폴대, 스트링, 스토퍼, 팩, 망치를 먼저 한곳에 펼쳐 누락 여부를 확인합니다.</p></div><button class="photo-button" type="button" data-src="assets/tarp-steps/tarp-step-01.jpg" aria-label="타프 구성품 전체 사진 크게 보기"><img src="assets/tarp-steps/tarp-step-01.jpg" alt="타프 구성품 전체 사진" loading="eager"></button></article>
+      <article class="step"><div class="num">01</div><div><h2>장비 구성 확인</h2><p>타프 천, 메인 폴대, 사이드 폴대, 스트링, 스토퍼, 팩, 망치를 먼저 한곳에 펼쳐 누락 여부를 확인합니다.</p></div><button class="photo-button" type="button" data-src="assets/tarp-steps/tarp-step-01.jpg?v=sharp4" aria-label="타프 구성품 전체 사진 크게 보기"><img src="assets/tarp-steps/tarp-step-01.jpg?v=sharp4" alt="타프 구성품 전체 사진" loading="eager"></button></article>
       <article class="step"><div class="num">02</div><div><h2>바람 방향 확인</h2><p>강한 바람을 넓은 면으로 받지 않게 방향을 잡고, 배수 흐름이 좋은 평평한 위치를 고릅니다.</p></div><button class="photo-button" type="button" data-src="assets/tarp-steps/tarp-step-02.jpg" aria-label="타프 설치 위치 확인 사진 크게 보기"><img src="assets/tarp-steps/tarp-step-02.jpg" alt="타프 설치 위치 확인 사진" loading="lazy"></button></article>
       <article class="step"><div class="num">03</div><div><h2>타프를 펼치고 중심선 맞추기</h2><p>타프 천을 완전히 펼친 뒤 메인 폴대가 들어갈 중심 위치와 출입 동선을 확인합니다.</p></div><button class="photo-button" type="button" data-src="assets/tarp-steps/tarp-step-03.jpg" aria-label="타프 천 펼치기 사진 크게 보기"><img src="assets/tarp-steps/tarp-step-03.jpg" alt="타프 천 펼치기 사진" loading="lazy"></button></article>
       <article class="step"><div class="num">04</div><div><h2>메인 폴대 세우기</h2><p>양쪽 메인 폴대를 먼저 세우고, 상단 고리에 스트링을 걸어 좌우 균형을 맞춥니다.</p></div><button class="photo-button" type="button" data-src="assets/tarp-steps/tarp-step-04.jpg" aria-label="메인 폴대 세우기 사진 크게 보기"><img src="assets/tarp-steps/tarp-step-04.jpg" alt="메인 폴대 세우기 사진" loading="lazy"></button></article>
-      <article class="step"><div class="num">05</div><div><h2>사이드 스트링 고정</h2><p>스트링을 45도 방향으로 당겨 팩을 박고, 스토퍼로 장력을 조절해 천이 처지지 않게 합니다.</p></div><button class="photo-button sprite p5" type="button" data-step="p5" aria-label="스트링 고정 사진 크게 보기"></button></article>
-      <article class="step"><div class="num">06</div><div><h2>장력과 빗물 길 만들기</h2><p>천의 한쪽을 살짝 낮춰 빗물이 흐를 길을 만들고, 전체 폴대와 팩이 흔들리지 않는지 점검합니다.</p></div><button class="photo-button sprite p6" type="button" data-step="p6" aria-label="완성된 타프 사진 크게 보기"></button></article>
+      <article class="step"><div class="num">05</div><div><h2>사이드 스트링 고정</h2><p>스트링을 45도 방향으로 당겨 팩을 박고, 스토퍼로 장력을 조절해 천이 처지지 않게 합니다.</p></div><button class="photo-button" type="button" data-src="assets/tarp-steps/tarp-step-05.jpg?v=sharp4" aria-label="스트링 고정 사진 크게 보기"><img src="assets/tarp-steps/tarp-step-05.jpg?v=sharp4" alt="스트링 고정 사진" loading="lazy"></button></article>
+      <article class="step"><div class="num">06</div><div><h2>장력과 빗물 길 만들기</h2><p>천의 한쪽을 살짝 낮춰 빗물이 흐를 길을 만들고, 전체 폴대와 팩이 흔들리지 않는지 점검합니다.</p></div><button class="photo-button" type="button" data-src="assets/tarp-steps/tarp-step-06.jpg?v=sharp4" aria-label="완성된 타프 사진 크게 보기"><img src="assets/tarp-steps/tarp-step-06.jpg?v=sharp4" alt="완성된 타프 사진" loading="lazy"></button></article>
     </section>
     <section class="tips">
       <h2>설치 체크포인트</h2>
@@ -74,38 +69,23 @@
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" type="button" aria-label="닫기">&times;</button>
     <img class="lightbox-img" id="lightboxImg" alt="">
-    <div class="lightbox-photo" id="lightboxPhoto" role="img" aria-label=""></div>
   </div>
   <script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxPhoto = document.getElementById('lightboxPhoto');
     const closeButton = document.querySelector('.lightbox-close');
-    const stepClasses = ['p5','p6'];
 
     function closeLightbox(){
       lightbox.classList.remove('open');
       lightbox.setAttribute('aria-hidden','true');
-      lightboxImg.classList.remove('visible');
-      lightboxPhoto.classList.remove('visible', ...stepClasses);
       lightboxImg.removeAttribute('src');
     }
 
     document.querySelectorAll('.photo-button').forEach((button) => {
       button.addEventListener('click', () => {
-        const src = button.dataset.src;
         const label = button.getAttribute('aria-label').replace(' 크게 보기','');
-        lightboxPhoto.classList.remove('visible', ...stepClasses);
-        lightboxImg.classList.remove('visible');
-        if(src){
-          lightboxImg.src = src;
-          lightboxImg.alt = label;
-          lightboxImg.classList.add('visible');
-        } else {
-          lightboxImg.removeAttribute('src');
-          lightboxPhoto.className = 'lightbox-photo visible ' + button.dataset.step;
-          lightboxPhoto.setAttribute('aria-label', label);
-        }
+        lightboxImg.src = button.dataset.src;
+        lightboxImg.alt = label;
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden','false');
         closeButton.focus();
